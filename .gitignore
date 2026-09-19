@@ -1,0 +1,23 @@
+# dependencies
+node_modules
+
+# strapi build output
+.cache
+build
+dist
+
+# env  secrets
+.env
+.env.local
+
+# database (if using local SQLite)
+.tmp
+.db
+
+# logs
+.log
+npm-debug.log
+
+# OSeditor junk
+.DS_Store
+.vscode

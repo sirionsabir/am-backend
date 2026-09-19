@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "site_settings",
+  "info": {
+    "singularName": "site-setting",
+    "pluralName": "site-settings",
+    "displayName": "siteSetting"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "companyName": {
+      "type": "string",
+      "required": true
+    },
+    "whatsappNumber": {
+      "type": "string",
+      "required": true
+    },
+    "instagramUrl": {
+      "type": "string"
+    },
+    "facebookUrl": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string",
+      "required": true
+    },
+    "trustBadgeText": {
+      "type": "string"
+    },
+    "announcementText": {
+      "type": "text"
+    },
+    "openingHours": {
+      "type": "string"
+    },
+    "closedDays": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "freeShippingThreshold": {
+      "type": "integer"
+    },
+    "deliveryNote": {
+      "type": "text"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "addressLine": {
+      "type": "string"
+    }
+  }
+}

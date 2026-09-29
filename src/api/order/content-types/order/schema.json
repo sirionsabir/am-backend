@@ -51,6 +51,10 @@
     "deliveryAddress": {
       "type": "text",
       "required": true
+    },
+    "orderToken": {
+      "type": "string",
+      "required": true
     }
   }
 }

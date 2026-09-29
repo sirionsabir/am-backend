@@ -4,7 +4,7 @@ const path = require('path');
 const { isDatabaseClientKind } = require('@strapi/database');
 
 module.exports = ({ env }) => {
-  const client = env('DATABASE_CLIENT', 'sqlite');
+  const client = env('DATABASE_CLIENT', 'postgres');
 
   if (!isDatabaseClientKind(client)) {
     throw new Error(
@@ -31,8 +31,12 @@ module.exports = ({ env }) => {
           rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
         },
       },
-      pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
+      pool: {
+        min: env.int('DATABASE_POOL_MIN', 2),
+        max: env.int('DATABASE_POOL_MAX', 10),
+      },
     },
+
     postgres: {
       client: 'postgres',
       connection: {
@@ -52,12 +56,20 @@ module.exports = ({ env }) => {
         },
         schema: env('DATABASE_SCHEMA', 'public'),
       },
-      pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
+      pool: {
+        min: env.int('DATABASE_POOL_MIN', 2),
+        max: env.int('DATABASE_POOL_MAX', 10),
+      },
     },
+
     sqlite: {
       client: 'sqlite',
       connection: {
-        filename: path.join(__dirname, '..', env('DATABASE_FILENAME', '.tmp/data.db')),
+        filename: path.join(
+          __dirname,
+          '..',
+          env('DATABASE_FILENAME', '.tmp/data.db')
+        ),
       },
       useNullAsDefault: true,
     },
@@ -66,7 +78,10 @@ module.exports = ({ env }) => {
   return {
     connection: {
       ...connections[client],
-      acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
+      acquireConnectionTimeout: env.int(
+        'DATABASE_CONNECTION_TIMEOUT',
+        60000
+      ),
     },
   };
 };

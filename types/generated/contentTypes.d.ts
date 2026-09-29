@@ -582,6 +582,7 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
       ['pending', 'confirmed', 'delivered', 'cancelled']
     > &
       Schema.Attribute.Required;
+    orderToken: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     subtotal: Schema.Attribute.Decimal & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -652,7 +653,6 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    isApproved: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

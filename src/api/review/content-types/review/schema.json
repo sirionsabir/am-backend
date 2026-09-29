@@ -23,9 +23,6 @@
       "type": "blocks",
       "required": false
     },
-    "isApproved": {
-      "type": "boolean"
-    },
     "product": {
       "type": "relation",
       "relation": "manyToOne",
